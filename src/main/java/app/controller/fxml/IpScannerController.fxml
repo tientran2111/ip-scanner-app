@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Text?>
+
+<?import app.view.IpTextField?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+    minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0"
+    prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.111"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="app.controller.IpScannerController">
+    <children>
+        <!-- Radio button for choice -->
+        <RadioButton fx:id="defaultScanRBtn" layoutX="35.0"
+            layoutY="24.0" mnemonicParsing="false"
+            onAction="#handleIpRadioBtns" selected="true" text="Default"
+            AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="24.0">
+            <toggleGroup>
+                <ToggleGroup fx:id="ipScanBtns" />
+            </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="singleScanRBtn" layoutX="45.0"
+            layoutY="34.0" mnemonicParsing="false"
+            onAction="#handleIpRadioBtns" text="Scan with single IP Address"
+            toggleGroup="$ipScanBtns" AnchorPane.leftAnchor="16.0"
+            AnchorPane.topAnchor="56.0" />
+        <RadioButton fx:id="rangeScanRBtn" layoutX="26.0"
+            layoutY="98.0" mnemonicParsing="false"
+            onAction="#handleIpRadioBtns" text="Scan with range"
+            toggleGroup="$ipScanBtns" AnchorPane.leftAnchor="16.0"
+            AnchorPane.topAnchor="88.0" />
+
+        <!-- Input -->
+        <IpTextField fx:id="startIpTxt" disable="true"
+            layoutX="244.0" layoutY="73.0" promptText="192.168.0.1"
+            AnchorPane.leftAnchor="38.0" AnchorPane.topAnchor="140.0" />
+        <IpTextField fx:id="endIpTxt" disable="true"
+            layoutX="210.0" layoutY="73.0" promptText="192.168.0.1"
+            AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="140.0" />
+        <Text layoutX="38.0" layoutY="120.0" strokeType="OUTSIDE"
+            strokeWidth="0.0" text="Start IP Address:"
+            wrappingWidth="120.13671875" AnchorPane.leftAnchor="38.0"
+            AnchorPane.topAnchor="120.0" />
+        <Text layoutX="210.0" layoutY="120.0" strokeType="OUTSIDE"
+            strokeWidth="0.0" text="End IP Address:" wrappingWidth="120.13671875"
+            AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="120.0" />
+
+        <!-- Main button -->
+        <Button fx:id="startBtn" layoutX="16.0" layoutY="196.0"
+            mnemonicParsing="false" onAction="#handleIpStartBtn"
+            prefHeight="25.0" prefWidth="108.0" text="Start Scan"
+            textAlignment="CENTER" AnchorPane.leftAnchor="16.0"
+            AnchorPane.topAnchor="196.0" />
+        <Button fx:id="stopBtn" disable="true" layoutX="210.0"
+            layoutY="196.0" mnemonicParsing="false"
+            onAction="#handleIpStopBtn" prefHeight="25.0" prefWidth="108.0"
+            text="Stop Scan" AnchorPane.leftAnchor="210.0"
+            textAlignment="CENTER" AnchorPane.topAnchor="196.0" />
+        <ProgressBar fx:id="progressBar" layoutX="16.0"
+            layoutY="236.0" prefHeight="18.0" prefWidth="725.0" progress="0.0"
+            AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0"
+            AnchorPane.topAnchor="236.0" />
+        <TextArea fx:id="resultTextArea" editable="false"
+            layoutX="16.0" layoutY="268.0" prefHeight="150.0" prefWidth="668.0"
+            AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0"
+            AnchorPane.topAnchor="268.0" />
+
+        <!-- Common button -->
+        <Button fx:id="exportFileBtn" alignment="CENTER"
+        layoutX="598.0" layoutY="20.0" mnemonicParsing="false"
+        onAction="#handleExportFileBtn" prefHeight="25.0" prefWidth="86.0"
+        text="Export" AnchorPane.leftAnchor="598.0" AnchorPane.rightAnchor="16.0"
+        AnchorPane.topAnchor="24.0" />
+        <Button fx:id="helpBtn" alignment="CENTER" layoutX="598.0"
+            layoutY="64.0" mnemonicParsing="false" onAction="#handleHelpBtn"
+            prefHeight="25.0" prefWidth="86.0" text="Help"
+            AnchorPane.leftAnchor="598.0" AnchorPane.rightAnchor="16.0"
+            AnchorPane.topAnchor="64.0" />
+        <Button fx:id="quitBtn" alignment="CENTER" layoutX="598.0"
+            layoutY="104.0" mnemonicParsing="false" onAction="#handleQuitBtn"
+            prefHeight="25.0" prefWidth="86.0" text="Quit"
+            AnchorPane.leftAnchor="598.0" AnchorPane.rightAnchor="16.0"
+            AnchorPane.topAnchor="104.0" />
+    </children>
+</AnchorPane>
